@@ -1102,10 +1102,10 @@ class GFForms {
 
 		if ( ! self::has_members_plugin() ) {
 			//give full access to administrators if the members plugin is not installed
-			if ( current_user_can( 'administrator' ) || is_super_admin() ) {
+			if ( current_user_can( 'administrator' ) || (is_multisite() && is_super_admin()) ) {
 				$all_caps['gform_full_access'] = true;
 			}
-		} else if ( current_user_can( 'administrator' ) || is_super_admin() ) {
+		} else if ( current_user_can( 'administrator' ) || (is_multisite() && is_super_admin()) ) {
 
 			//checking if user has any GF permission.
 			$has_gf_cap = false;
